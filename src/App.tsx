@@ -28,21 +28,31 @@ function App() {
   }, []);
 
   const startScanning = async () => {
-    setResult(undefined); 
-    setScanningRender(true)
+    setResult(undefined);
+    setScanningRender(true);
+
     if (scanner) {
       scanner.render(
         async (decodedText) => {
           setResult(decodedText);
-          const response = await axios.post(apiUrl!, { data: decodedText });
-          console.log(response);
-          scanner.clear().then(() => {
-            // console.log("Scanner cleared successfully");
-            setScanningRender(false);
-          }).catch(error => console.error("Failed to clear scanner", error));
-        },
-        () => {
 
+          try {
+            await scanner.clear();
+            if (apiUrl) {
+              const response = await axios.post(apiUrl, { data: decodedText });
+              console.log(response);
+            } else {
+              console.error("API URL is not defined");
+            }
+          } catch (error) {
+            console.error("Error during scan processing:", error);
+          } finally {
+            setScanningRender(false);
+          }
+        },
+        (error) => {
+          // Handle scan error if needed
+          console.error("QR Code scanning error:", error);
         }
       );
     }
