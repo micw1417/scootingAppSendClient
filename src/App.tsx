@@ -53,7 +53,7 @@ function App() {
       {result &&
         <div>
           <h2>Successful Scan!</h2>
-          <p>The data is being sent to a server.<p/>
+          <p>The data is being sent to a server.</p>
           <p>should be sent to the spreadsheet.</p>
         </div>
       }
