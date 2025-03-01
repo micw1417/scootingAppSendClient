@@ -8,10 +8,14 @@ function App() {
   const [scanner, setScanner] = useState<Html5QrcodeScanner | null>(null);
   const [scanningRender, setScanningRender] = useState(false);
   const apiUrl = import.meta.env.VITE_API_URL;
+
+    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+
   useEffect(() => {
     const newScanner = new Html5QrcodeScanner(
       'reader',
-      { qrbox: { width: 250, height: 250 }, fps: 60 },
+      { qrbox: { width: vw - 50, height: vh - 50 }, fps: 60 },
       false 
     );
 
