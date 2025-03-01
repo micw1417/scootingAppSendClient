@@ -52,8 +52,9 @@ function App() {
       <div id="reader"></div>
       {result &&
         <div>
-          <h2>Success!</h2>
-          <p>The data was {result}. The data is being sent to a server and should be sent to the spreadsheet.</p>
+          <h2>Successful Scan!</h2>
+          <p>The data is being sent to a server.<p/>
+          <p>should be sent to the spreadsheet.</p>
         </div>
       }
       
