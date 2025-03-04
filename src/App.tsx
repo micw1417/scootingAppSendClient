@@ -7,7 +7,7 @@ function App() {
   const [result, setResult] = useState<string>();
   const [scanner, setScanner] = useState<Html5QrcodeScanner | null>(null); 
   const [scanningRender, setScanningRender] = useState(false);
-  const apiUrl = import.meta.env.VITE_API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL || "https://ntxscouting.rubyboat.net/add_data";
 
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
