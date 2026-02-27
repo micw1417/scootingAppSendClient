@@ -7,7 +7,7 @@ function App() {
   const [result, setResult] = useState<string>();
   const [scanner, setScanner] = useState<Html5QrcodeScanner | null>(null); 
   const [scanningRender, setScanningRender] = useState(false);
-  const apiUrl = "http://127.0.0.1:5000/add_data";
+  const apiUrl = "http://qr.wucode.org/add_data";
 
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
